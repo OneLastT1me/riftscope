@@ -11,6 +11,11 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-blue: #35E0CF;
+  --color-white: #EDF7F6;
+  --color-yellow: #DAB867;
+  --color-green: #5DD49C;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,13 +29,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   width: 1440px;
-  margin: 0 auto 
+  margin: 0 auto;
+  background-color: #1f1f1f;
 }
 
 .text-body{
-  @apply font-extrabold leading-[100%];
+  @apply font-extrabold leading-[100%] font-inter;
 }
 
 .text-min-body {
-  @apply font-semibold leading-[100%] tracking-[0] text-[#9CB0B3];
+  @apply font-semibold leading-[100%] tracking-[0] text-[#9CB0B3] font-inter;
 }

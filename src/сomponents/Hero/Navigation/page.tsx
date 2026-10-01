@@ -7,7 +7,7 @@ export default function Content() {
             <div className="px-[80px] py-[19px] border-b border-[#1B3440] flex justify-between">
                 <div>
                     <Link href="/" className="flex items-center gap-[12px]">
-                        <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] border-2 border-[#18e0cf] gap-[12px]">
+                        <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] border-2 border-blue gap-[12px]">
                             <Image
                                 src="/logo.svg"
                                 alt="RiftScope"
@@ -16,13 +16,13 @@ export default function Content() {
                             />
                         </div>
                         <div className="flex">
-                            <span className="text-body text-[#f1f5f9] text-[20px] font-inter">
+                            <span className="text-body text-[20px] text-white">
                                 Rift
                             </span>
-                            <span className="text-body text-[#18d9cf] text-[20px] font-inter">
+                            <span className="text-body text-[20px] text-blue">
                                 Scope
                             </span>
-                            <span className="font-robot ml-[12px] rounded-[4px] border-solid border-[1px] border-[#DAB867] px-[6px] py-[4px] text-[8px] font-bold leading-none text-[#DAB867]">
+                            <span className="font-robot ml-[12px] rounded-[4px] border-solid border-[1px] border-yellow px-[6px] py-[4px] text-[8px] font-bold leading-none text-yellow">
                                 BETA
                             </span>
                         </div>
@@ -30,16 +30,16 @@ export default function Content() {
                 </div>
                 <nav className="flex items-center w-[353px]">
                     <ul className="flex items-center gap-[28px]">
-                        <li className="text-min-body font-inter text-[12px]"><Link href="/">Огляд</Link></li>
-                        <li className="text-min-body font-inter text-[12px]"><Link href="/">Чемпіони</Link></li>
-                        <li className="text-min-body font-inter text-[12px]"><Link href="/">Білди</Link></li>
-                        <li className="text-min-body font-inter text-[12px]"><Link href="/">Тірлист</Link></li>
-                        <li className="text-min-body font-inter text-[12px]"><Link href="/">Лідерборд</Link></li>
+                        <li className="text-min-body text-[12px]"><Link href="/">Огляд</Link></li>
+                        <li className="text-min-body text-[12px]"><Link href="/">Чемпіони</Link></li>
+                        <li className="text-min-body text-[12px]"><Link href="/">Білди</Link></li>
+                        <li className="text-min-body text-[12px]"><Link href="/">Тірлист</Link></li>
+                        <li className="text-min-body text-[12px]"><Link href="/">Лідерборд</Link></li>
                     </ul>
                 </nav>
                 <div className="flex items-center gap-2">
                 <div className="flex h-[35px] w-fit items-center gap-[7px] bg-[#0A131C] px-[8px] py-[11px] rounded-[8px] border">
-                    <span className="h-[6px] w-[6px] rounded-full bg-[#5DD49C]" />
+                    <span className="h-[6px] w-[6px] rounded-full bg-green" />
                     <span className="font-roboto text-[10px] font-bold leading-none text-[#9CB0B3]">
                         LIVE DATA
                     </span>
