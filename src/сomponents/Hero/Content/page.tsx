@@ -33,7 +33,7 @@ export default function Navigation() {
                         ДАНІ ОНОВЛЕНО 4 ХВ ТОМУ · PATCH 26.18
                     </span>
                 </div>
-                <div className="mt-[24px]">
+                <div className="mt-[24px] text-body">
                     <span className="font-normal leading-[102%] text-[58px] text-white">Бач гру глибше.<br /></span>
                     <span className="font-normal leading-[102%] text-[58px] text-blue">Перемагай точніше.<br /></span>
                     <span className="mt-[26px] inline-block text-min-body text-[16px] !leading-[165%]">RiftScope перетворює кожен матч на зрозумілий план дій: актуальна мета,<br /> персональні KPI, білди та рішення, що реально впливають на результат.</span>
@@ -88,46 +88,46 @@ export default function Navigation() {
                     </span>
                 </div>
             </div>
-            <div className="w-[400px] h-[353px] p-[34px] border-[1px] border-[#245363] rounded-[18px] opacity-88 bg-[#0A141D]">
-                <div className="flex justify-between items-center gap-[9px]">
+            <div className="w-[400px] h-[353px] p-[24px] border-[1px] border-[#245363] rounded-[18px] opacity-88 bg-[#0A141D]">
+                <div className="flex justify-between items-center gap-[9px] h-[23px]">
                     <div className="flex items-center gap-[7px]">
                         <span className="h-[6px] w-[6px] rounded-full bg-blue" />
                         <span className="font-roboto text-[10px] font-bold text-blue">
                             MATCH INTELLIGENCE
                         </span>
                     </div>
-                    <span className="font-robot ml-[12px] rounded-[4px] border-solid border-[1px] border-yellow px-[6px] py-[4px] text-[8px] font-bold leading-none text-yellow bg-[#352D1D]">
-                        PATCH 26.18
-                    </span>
-                </div>
-                <div className="flex  mt-[24px] gap-[10px]">
-                    <div className="w-[76px] h-[76px] shrink-0 border rounded-[12px] border-blue bg-cover bg-center" style={{ backgroundImage: `url(${imgProfile})` }}></div>
-                    <div>
-                        <span className="font-normal text-[20px] text-white">KyivCarry <br /></span>
-                        <span className="font-bold text-[12px] text-yellow">DIAMOND II · 64 LP<br /></span>
-                        <span className="text-min-body text-[12px]">Solo/Duo · останні 20 матчів <br /></span>
+                    <div className=" w-[84px] h-[23px] px-[6px] py-[5px] text-center rounded-[4px] border-bold border-[1px] border-yellow text-[10px] text-yellow bg-[#352D1D]">
+                        <span className="font-roboto">PATCH 26.18</span>
                     </div>
                 </div>
-                <div className="flex h-[68px] w-full mt-[24px]">
+                <div className="flex  mt-[24px] gap-[16px]">
+                    <div className="w-[76px] h-[76px] shrink-0 border rounded-[12px] border-blue bg-cover bg-center" style={{ backgroundImage: `url(${imgProfile})` }}></div>
+                    <div>
+                        <span className="font-normal text-[20px] text-white font-roboto">KyivCarry <br /></span>
+                        <span className="font-bold text-[12px] text-yellow font-roboto">DIAMOND II · 64 LP<br /></span>
+                        <span className="text-min-body text-[12px] font-roboto">Solo/Duo · останні 20 матчів <br /></span>
+                    </div>
+                </div>
+                <div className="flex w-full h-[68px] mt-[20px]">
                     {stats.map((stat, index) => (
                         <div
                             key={stat.label}
-                            className={`flex flex-1 flex-col items-center justify-center ${
+                            className={`flex flex-1 flex-col items-center justify-center font-roboto ${
                                 index > 0 ? "border-l border-[#17303d]" : ""}`}
                         >
-                        <span
-                            className="text-[23px] font-semibold leading-none"
-                            style={{ color: stat.color }}
-                        >
-                            {stat.value}
-                        </span>
-                        <span className="mt-[9px] text-[9px] uppercase text-[#53656f]">
-                            {stat.label}
-                        </span>
+                            <span
+                                className="font-roboto  text-[19px] font-bold leading-[100%] tracking-[0%]"
+                                style={{ color: stat.color }}
+                            >
+                                {stat.value}
+                            </span>
+                            <span className="font-roboto mt-[9px] text-[8px] uppercase text-[#53656f] ">
+                                {stat.label}
+                            </span>
                         </div>
                     ))}
                 </div>
-                <div className="w-full h-[66px] mt-[24px] rounded-[8px] border-[#123C3B] bg-[#14312F] ">
+                <div className="р-[66px] mt-[24px] rounded-[8px] border-[#123C3B] bg-[#14312F] ">
                      <span className="text-min-body gap-[12px] text-[12px] flex  p-[16px] !font-normal !leading-[145%]">
                         <Image
                             src="/Activity.svg"
