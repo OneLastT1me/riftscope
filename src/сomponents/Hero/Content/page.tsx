@@ -45,9 +45,24 @@ export default function Navigation() {
                         width={19}
                         height={19}
                     />
-                    <div>
+                    <div className="flex min-w-0 flex-1 flex-col">
+                        <span className="font-roboto text-[8px] uppercase leading-[10px] text-[#687983]">
+                            Riot ID
+                        </span>
 
+                        <span className="font-roboto text-[16px] leading-[20px] text-white">
+                            KyivCarry#UA1
+                        </span>
                     </div>
+                    <select
+                        defaultValue="EUW"
+                        className="cursor-pointer appearance-none bg-transparent font-roboto text-[12px] font-bold text-[#e6b94d] outline-none"
+                    >
+                        <option value="EUW">EUW</option>
+                        <option value="EUNE">EUNE</option>
+                        <option value="NA">NA</option>
+                        <option value="KR">KR</option>
+                    </select>
                     <button type="submit" className=" flex justify-center h-[44px] shrink-0 items-center gap-[10px] rounded-[13px] bg-blue px-[17px] text-[13px] font-bold text-[#060B10]">
                         <span>Знайти гравця</span>
                         <Image
@@ -102,8 +117,8 @@ export default function Navigation() {
                 </div>
                 <div className="flex  mt-[24px] gap-[16px]">
                     <div className="w-[76px] h-[76px] shrink-0 border rounded-[12px] border-blue bg-cover bg-center" style={{ backgroundImage: `url(${imgProfile})` }}></div>
-                    <div>
-                        <span className="font-normal text-[20px] text-white font-roboto">KyivCarry <br /></span>
+                    <div className="flex flex-col gap-[5px]">
+                        <span className="font-normal text-[20px] text-white">KyivCarry <br /></span>
                         <span className="font-bold text-[12px] text-yellow font-roboto">DIAMOND II · 64 LP<br /></span>
                         <span className="text-min-body text-[12px] font-roboto">Solo/Duo · останні 20 матчів <br /></span>
                     </div>
