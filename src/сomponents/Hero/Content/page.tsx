@@ -21,12 +21,12 @@ const stats = [
   },
 ];
 
-export default function Navigation() {
+export default function Content() {
     const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
 
     return(
-        <div className="flex justify-between mx-[80px] my-[162px]">
-            <div className="w-[720px] h-[368px]">
+        <div className="flex justify-between mx-[clamp(24px,5.56vw,80px)] my-[162px]">
+            <div className="w-[clamp(500px,50vw,720px)] h-[368px]">
                 <div className="flex items-center gap-[9px] px-[11px] py-[7px] w-fit border-[1px] border-solid rounded-[999px] border-[#245363] bg-[#0b181e]">
                     <span className="h-[6px] w-[6px] rounded-full bg-yellow" />
                     <span className="font-roboto text-[10px] font-bold leading-none text-yellow">
@@ -103,7 +103,7 @@ export default function Navigation() {
                     </span>
                 </div>
             </div>
-            <div className="w-[400px] h-[353px] p-[24px] border-[1px] border-[#245363] rounded-[18px] opacity-88 bg-[#0A141D]">
+            <div className="w-[clamp(320px,27.78vw,400px)] h-[353px] p-[24px] border-[1px] border-[#245363] rounded-[18px] opacity-88 bg-[#0A141D]">
                 <div className="flex justify-between items-center gap-[9px] h-[23px]">
                     <div className="flex items-center gap-[7px]">
                         <span className="h-[6px] w-[6px] rounded-full bg-blue" />
