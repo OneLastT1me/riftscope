@@ -49,7 +49,6 @@ export default function Content() {
                         <span className="font-roboto text-[8px] uppercase leading-[10px] text-[#687983]">
                             Riot ID
                         </span>
-
                         <span className="font-roboto text-[16px] leading-[20px] text-white">
                             KyivCarry#UA1
                         </span>
@@ -149,6 +148,7 @@ export default function Content() {
                             alt="Activity"
                             width={15}
                             height={15}
+                            className="h-auto"
                         />
                         <p><span className="text-white">Сильна форма.</span> Ваш vision score виріс на 14% за тиждень.</p>
                     </span>

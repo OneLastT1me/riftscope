@@ -1,7 +1,19 @@
 import Navigation from "./Navigation/page";
 import Content from "./Content/page";
+import { getChallengerPlayers } from "@/lib/riot/getChallengerPlayers";
+import getPlayerAccount from "@/lib/riot/getPlayerAccount";
+import { getPlayerStats } from "@/lib/riot/getPlayerStats";
 
-export default function FirstSection() {
+export default async function FirstSection() {
+
+     const league = await getChallengerPlayers();
+
+    const topPlayer = league.entries[0];
+    console.log(topPlayer)
+    const account = await getPlayerAccount("EUROPE" ,topPlayer.puuid);
+    console.log(account)
+    const playerStats = await getPlayerStats("EUROPE", topPlayer.puuid)
+    console.log(playerStats, 'playerStats')
     return (
         <section className="relative h-[760px] w-full overflow-hidden">
             <div
