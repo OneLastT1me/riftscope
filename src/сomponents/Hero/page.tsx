@@ -1,19 +1,26 @@
+
 import Navigation from "./Navigation/page";
 import Content from "./Content/page";
+
 import { getChallengerPlayers } from "@/lib/riot/getChallengerPlayers";
 import getPlayerAccount from "@/lib/riot/getPlayerAccount";
 import { getPlayerStats } from "@/lib/riot/getPlayerStats";
 
 export default async function FirstSection() {
+    const challengerPlayers = await getChallengerPlayers('EUW1')
+    const puuidTopPlayer = challengerPlayers.entries[0].puuid
+    // const account = await getPlayerAccount("EUROPE" , puuidTopPlayer);
+    // console.log(account)
+    const playerState =  await getPlayerStats('EUROPE', puuidTopPlayer)
+    
+    const wins = playerState.filter(player => player.win).length
+    const kills = playerState.reduce((sum, participant) => sum + participant.kills,0);
+    const deaths = playerState.reduce((sum, participant) => sum + participant.deaths,0);
+    const assists = playerState.reduce((sum, participant) => sum + participant.assists,0);
+    const totalMinionsKilled = playerState.reduce((sum, participant) => sum + participant.totalMinionsKilled + participant.neutralMinionsKilled,0);
+    
+    console.log(totalMinionsKilled )
 
-     const league = await getChallengerPlayers();
-
-    const topPlayer = league.entries[0];
-    console.log(topPlayer)
-    const account = await getPlayerAccount("EUROPE" ,topPlayer.puuid);
-    console.log(account)
-    const playerStats = await getPlayerStats("EUROPE", topPlayer.puuid)
-    console.log(playerStats, 'playerStats')
     return (
         <section className="relative h-[760px] w-full overflow-hidden">
             <div
