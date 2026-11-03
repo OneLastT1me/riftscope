@@ -9,17 +9,19 @@ import { getPlayerStats } from "@/lib/riot/getPlayerStats";
 export default async function FirstSection() {
     const challengerPlayers = await getChallengerPlayers('EUW1')
     const puuidTopPlayer = challengerPlayers.entries[0].puuid
-    // const account = await getPlayerAccount("EUROPE" , puuidTopPlayer);
-    // console.log(account)
+    const account = await getPlayerAccount("EUROPE" , puuidTopPlayer);
+    console.log(challengerPlayers.tier)
     const playerState =  await getPlayerStats('EUROPE', puuidTopPlayer)
     
     const wins = playerState.filter(player => player.win).length
     const kills = playerState.reduce((sum, participant) => sum + participant.kills,0);
     const deaths = playerState.reduce((sum, participant) => sum + participant.deaths,0);
     const assists = playerState.reduce((sum, participant) => sum + participant.assists,0);
-    const totalMinionsKilled = playerState.reduce((sum, participant) => sum + participant.totalMinionsKilled + participant.neutralMinionsKilled,0);
+    const KDA_Avarage = (kills + assists) / deaths 
+    const csMin = playerState.reduce((sum, participant) =>
+        sum + participant.totalMinionsKilled + participant.neutralMinionsKilled,0) /
+            (playerState.reduce((sum, participant) => sum + participant.gameDuration,0) / 60);
     
-    console.log(totalMinionsKilled )
 
     return (
         <section className="relative h-[760px] w-full overflow-hidden">
@@ -42,7 +44,13 @@ export default async function FirstSection() {
 
             <div className="relative z-10">
                 <Navigation />
-                <Content />
+                <Content
+                    gameName={account.gameName}
+                    tier={challengerPlayers.tier}
+                    winRate={wins} 
+                    KDA={Math.round(KDA_Avarage)} 
+                    csMin={Number(csMin.toFixed(2))} 
+                />
             </div>
         </section>
     );

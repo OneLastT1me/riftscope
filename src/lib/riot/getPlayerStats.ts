@@ -13,7 +13,7 @@ type MatchParticipant = {
   assists: number;
   totalMinionsKilled: number;
   neutralMinionsKilled: number;
-  gameDuration?: number;
+  gameDuration: number;
 };
 
 type Match = {
@@ -58,16 +58,7 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
     }
 
     const matchIds: string[] = await matchesResponse.json();
-    
-    if(matchIds.length === 0){
-        return{
-            matchesPlayed: 0,
-            winRate: 0,
-            kda: 0,
-            averageCs: 0,
-            csPerMinute: 0,
-        }
-    }
+ 
 
     //get state in all matches only player who we have puuid
     const matches: Match[] = await Promise.all(
@@ -89,7 +80,20 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
         })  
     )
 
-    const playerState = matches.map((match) => match.info.participants.find((participants) => participants.puuid === puuid)).filter(participants=> participants !== undefined)
+    const playerState = matches.map((match) => {
+        const participant = match.info.participants.find(
+            (player) => player.puuid === puuid
+        )
+
+        if (!participant) return undefined;
+            
+        return {
+            ...participant,
+            gameDuration: match.info.gameDuration,
+        }
+            }).filter(participants => participants !== undefined)
+
+            
 
     return playerState
 }

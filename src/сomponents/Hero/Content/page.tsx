@@ -3,25 +3,35 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const stats = [
+
+
+type Props = {
+    gameName: string;
+    tier: string;
+    winRate: number;
+    KDA: number;
+    csMin: number;
+}
+
+export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier}:Props) {
+
+    const stats = [
   {
-    value: "58%",
+    value: winRate,
     label: "WIN RATE",
     color: "var(--color-green)",
   },
   {
-    value: "3.42",
+    value: KDA,
     label: "KDA",
     color: "var(--color-blue)",
   },
   {
-    value: "7.8",
+    value: csMin,
     label: "CS/MIN",
     color: "var(--color-yellow)",
   },
 ];
-
-export default function Content() {
     const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
 
     return(
@@ -117,8 +127,8 @@ export default function Content() {
                 <div className="flex  mt-[24px] gap-[16px]">
                     <div className="w-[76px] h-[76px] shrink-0 border rounded-[12px] border-blue bg-cover bg-center" style={{ backgroundImage: `url(${imgProfile})` }}></div>
                     <div className="flex flex-col gap-[5px]">
-                        <span className="font-normal text-[20px] text-white">KyivCarry <br /></span>
-                        <span className="font-bold text-[12px] text-yellow font-roboto">DIAMOND II · 64 LP<br /></span>
+                        <span className="font-normal text-[20px] text-white">{gameName} <br /></span>
+                        <span className="font-bold text-[12px] text-yellow font-roboto">{tier}<br /></span>
                         <span className="text-min-body text-[12px] font-roboto">Solo/Duo · останні 20 матчів <br /></span>
                     </div>
                 </div>
@@ -133,7 +143,7 @@ export default function Content() {
                                 className="font-roboto  text-[19px] font-bold leading-[100%] tracking-[0%]"
                                 style={{ color: stat.color }}
                             >
-                                {stat.value}
+                                {stat.label === "WIN RATE" ? stat.value + '%' : stat.value }
                             </span>
                             <span className="font-roboto mt-[9px] text-[8px] uppercase text-[#53656f] ">
                                 {stat.label}
