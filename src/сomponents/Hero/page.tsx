@@ -10,7 +10,6 @@ export default async function FirstSection() {
     const challengerPlayers = await getChallengerPlayers('EUW1')
     const puuidTopPlayer = challengerPlayers.entries[0].puuid
     const account = await getPlayerAccount("EUROPE" , puuidTopPlayer);
-    console.log(challengerPlayers.tier)
     const playerState =  await getPlayerStats('EUROPE', puuidTopPlayer)
     
     const wins = playerState.filter(player => player.win).length
@@ -34,14 +33,12 @@ export default async function FirstSection() {
                     bg-no-repeat
                 "
             />
-
             <div
                 className="
                     absolute inset-0
                     bg-[linear-gradient(56.31deg,rgba(6,16,24,0.968627)_24%,rgba(7,16,25,0.780392)_54.16%,rgba(7,16,25,0.509804)_76%)]
                 "
             />
-
             <div className="relative z-10">
                 <Navigation />
                 <Content
@@ -52,6 +49,7 @@ export default async function FirstSection() {
                     csMin={Number(csMin.toFixed(2))} 
                 />
             </div>
+            
         </section>
     );
 }

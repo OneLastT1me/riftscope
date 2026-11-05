@@ -3,8 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-
-
 type Props = {
     gameName: string;
     tier: string;
@@ -14,7 +12,8 @@ type Props = {
 }
 
 export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier}:Props) {
-
+    const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
+    
     const stats = [
   {
     value: winRate,
@@ -32,7 +31,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
     color: "var(--color-yellow)",
   },
 ];
-    const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
+    
 
     return(
         <div className="flex justify-between mx-[clamp(24px,5.56vw,80px)] my-[162px]">
@@ -152,7 +151,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                     ))}
                 </div>
                 <div className="р-[66px] mt-[24px] rounded-[8px] border-[#123C3B] bg-[#14312F] ">
-                     <span className="text-min-body gap-[12px] text-[12px] flex  p-[16px] !font-normal !leading-[145%]">
+                     <span className="text-min-body gap-[12px] text-[12px] flex p-[16px] !font-normal !leading-[145%]">
                         <Image
                             src="/Activity.svg"
                             alt="Activity"

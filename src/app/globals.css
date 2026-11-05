@@ -16,6 +16,8 @@
   --color-white: #EDF7F6;
   --color-yellow: #DAB867;
   --color-green: #5DD49C;
+  --color-red: #FF6B75;
+
 }
 
 @media (prefers-color-scheme: dark) {

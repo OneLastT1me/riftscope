@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navigation() {
     return(
-        <header className="h-[76px] w-full border-b border-[#1B3440]">
+        <header className="h-[76px] w-full">
             <div className="flex justify-between border-b border-[#1B3440] px-[clamp(24px,5.56vw,80px)] py-[19px]">
                 <Link href="/" className="flex items-center gap-[12px]">
                     <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] border-2 border-blue gap-[12px]">                            <Image
