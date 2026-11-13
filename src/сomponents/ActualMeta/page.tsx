@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
+type Props ={
+    wins: number
+}
+
 export default function ActualMeta () {
     
     const Meta = [{
@@ -11,7 +15,7 @@ export default function ActualMeta () {
             countWinrate: 2.8
             },
         statePatch: 'BUFF',
-        src: './mock-sword.svg',
+        src: './mock/mock-sword.svg',
         color: 'var(--color-green)'
     },
     {
@@ -22,7 +26,7 @@ export default function ActualMeta () {
             countWinrate: 1.4
             },
         statePatch: 'TREND',
-        src: './mock-sparkles.svg',
+        src: './mock/mock-sparkles.svg',
         color: 'var(--color-blue)'  
     },
     {
@@ -33,7 +37,7 @@ export default function ActualMeta () {
             countWinrate: 2.1
             },
         statePatch: 'NERF',
-        src: './mock-shield.svg',
+        src: './mock/mock-shield.svg',
         color: 'var(--color-red)'
     }
     ]
@@ -51,7 +55,7 @@ export default function ActualMeta () {
                     <span className="font-roboto text-[36px] font-bold leading-none text-white">
                         26.18
                     </span>
-                    <span className="font-inter gap-[7px] text-[12px] flex items-center text-[#9CB0B3] !leading-[145%]">
+                    <span className="font-inter gap-[7px] text-[12px] flex items-center text-grey !leading-[145%]">
                         Мета стабілізується навколо early-game jungle та utility support.
                     </span>
                 </div>
@@ -77,7 +81,7 @@ export default function ActualMeta () {
                                 </div>
                                 <div className="pl-[12px] flex flex-col items-end">
                                     <span className="font-roboto text-[12px] font-bold leading-none text-white" style={{ color: item.color }}>{item.winRater.state}{item.winRater.countWinrate}% WR</span>
-                                    <span className="font-inter text-[10px] font-bold leading-none text-[#64787D] pt-[4px]">{item.statePatch}</span>
+                                    <span className="font-roboto text-[8px] font-bold leading-none text-[#64787D] pt-[4px]">{item.statePatch}</span>
                                 </div>
                             </div>
                         </Link>

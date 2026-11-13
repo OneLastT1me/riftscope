@@ -4,23 +4,13 @@ import {
   RIOT_REGIONAL_URLS,
   type RegionalRoute,
 } from "./config";
-
-type MatchParticipant = {
-  puuid: string;
-  win: boolean;
-  kills: number;
-  deaths: number;
-  assists: number;
-  totalMinionsKilled: number;
-  neutralMinionsKilled: number;
-  gameDuration: number;
-};
+import { GameState } from "@/types";
 
 type Match = {
-  info: {
-    gameDuration: number;
-    participants: MatchParticipant[];
-  };
+    info: {
+        gameDuration: number;
+        participants: GameState[];
+    };
 };
 
 export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: string) {
@@ -93,7 +83,5 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
         }
             }).filter(participants => participants !== undefined)
 
-            
-
-    return playerState
+    return playerState 
 }

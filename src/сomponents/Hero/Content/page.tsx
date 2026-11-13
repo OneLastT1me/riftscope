@@ -4,14 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 
 type Props = {
-    gameName: string;
-    tier: string;
-    winRate: number;
-    KDA: number;
-    csMin: number;
+    gameName: string,
+    tier: string,
+    winRate: number,
+    KDA: number,
+    csMin: number,
+    tagLine: string
 }
 
-export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier}:Props) {
+export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier, tagLine}:Props) {
     const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
     
     const stats = [
@@ -59,7 +60,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             Riot ID
                         </span>
                         <span className="font-roboto text-[16px] leading-[20px] text-white">
-                            KyivCarry#UA1
+                            {gameName}#{tagLine}
                         </span>
                     </div>
                     <select

@@ -6,11 +6,12 @@ export default function Navigation() {
         <header className="h-[76px] w-full">
             <div className="flex justify-between border-b border-[#1B3440] px-[clamp(24px,5.56vw,80px)] py-[19px]">
                 <Link href="/" className="flex items-center gap-[12px]">
-                    <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] border-2 border-blue gap-[12px]">                            <Image
-                        src="/logo.svg"
-                        alt="RiftScope"
-                        width={21}
-                        height={21}
+                    <div className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-[8px] border-2 border-blue gap-[12px]">                            
+                        <Image
+                            src="/logo.svg"
+                            alt="RiftScope"
+                            width={21}
+                            height={21}
                         />
                     </div>
                     <div className="flex">
@@ -37,7 +38,7 @@ export default function Navigation() {
                 <div className="flex items-center gap-2">
                 <div className="flex h-[35px] w-fit items-center gap-[7px] bg-[#0A131C] px-[8px] py-[11px] rounded-[8px] border">
                     <span className="h-[6px] w-[6px] rounded-full bg-green" />
-                    <span className="font-roboto text-[10px] font-bold leading-none text-[#9CB0B3]">
+                    <span className="font-roboto text-[10px] font-bold leading-none text-grey">
                         LIVE DATA
                     </span>
                 </div>
