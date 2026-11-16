@@ -9,7 +9,8 @@ import { GameState } from "@/types";
 type Match = {
     info: {
         gameDuration: number;
-        participants: GameState[];
+        participants: GameState[]
+        gameStartTimestamp: string
     };
 };
 
@@ -65,23 +66,25 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
                 if (!response.ok) {
                     throw new Error(`Failed to fetch match ${matchId}: ${response.status}`);
                 }
-
+  
             return response.json();
         })  
     )
-
+   
     const playerState = matches.map((match) => {
+        
         const participant = match.info.participants.find(
-            (player) => player.puuid === puuid
+            (player) => player.puuid === puuid,
         )
-
+        
         if (!participant) return undefined;
             
         return {
             ...participant,
             gameDuration: match.info.gameDuration,
+            gameStartTimestamp: match.info.gameStartTimestamp,
         }
             }).filter(participants => participants !== undefined)
-
+    
     return playerState 
 }

@@ -89,13 +89,15 @@ export default function ActualMeta () {
                 </div>
                 <div className="max-w-[160px] content-center">
                     <span className="font-inter text-[10px] font-normal leading-none text-[#64787D]">{new Date().toLocaleDateString('ru-RU')}</span>
-                    <Link href=""><span className="w-full inline-flex items-center gap-1 font-roboto text-[12px] font-bold leading-none text-blue"> Нотатки патчу 
-                        <Image
-                            src="/arrow.svg"
-                            alt="ArrowButton"
-                            width={15}
-                            height={15}
-                    /></span></Link>
+                        <Link href=""><span className="w-full inline-flex items-center gap-1 font-roboto text-[12px] font-bold leading-none text-blue"> Нотатки патчу 
+                            <Image
+                                src="/arrow.svg"
+                                alt="ArrowButton"
+                                width={15}
+                                height={15}
+                            />
+                        </span>
+                    </Link>
                 </div>
             </div>
         </div>

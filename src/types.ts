@@ -35,4 +35,5 @@ export interface GameState{
     neutralMinionsKilled: number
     goldEarned: number
     puuid: string
+    gameStartTimestamp: string
 }
