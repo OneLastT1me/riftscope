@@ -37,7 +37,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
     return(
         <div className="flex justify-between mx-[clamp(24px,5.56vw,80px)] my-[162px]">
             <div className="w-[clamp(500px,50vw,720px)] h-[368px]">
-                <div className="flex items-center gap-[9px] px-[11px] py-[7px] w-fit border-[1px] border-solid rounded-[999px] border-[#245363] bg-[#0b181e]">
+                <div className="flex items-center gap-[9px] px-[11px] py-[7px] w-fit border-[1px] border-solid rounded-[999px] border-dark-teal bg-[#0b181e]">
                     <span className="h-[6px] w-[6px] rounded-full bg-yellow" />
                     <span className="font-roboto text-[10px] font-bold leading-none text-yellow">
                         ДАНІ ОНОВЛЕНО 4 ХВ ТОМУ · PATCH 26.18
@@ -48,7 +48,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                     <span className="font-normal leading-[102%] text-[58px] text-blue">Перемагай точніше.<br /></span>
                     <span className="mt-[26px] inline-block text-min-body text-[16px] !leading-[165%]">RiftScope перетворює кожен матч на зрозумілий план дій: актуальна мета,<br /> персональні KPI, білди та рішення, що реально впливають на результат.</span>
                 </div>
-                <form className="mt-[24px] flex justify-between h-[60px] w-full max-w-[650px] items-center gap-[12px] rounded-[12px] border  border border-[#245363] pr-[8px] pl-[18px]">
+                <form className="mt-[24px] flex justify-between h-[60px] w-full max-w-[650px] items-center gap-[12px] rounded-[12px] border  border border-dark-teal pr-[8px] pl-[18px]">
                     <Image
                         src="/Search.svg"
                         alt="IconSearch"
@@ -112,7 +112,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                     </span>
                 </div>
             </div>
-            <div className="w-[clamp(320px,27.78vw,400px)] h-[353px] p-[24px] border-[1px] border-[#245363] rounded-[18px] opacity-88 bg-[#0A141D]">
+            <div className="w-[clamp(320px,27.78vw,400px)] h-[353px] p-[24px] border-[1px] border-dark-teal rounded-[18px] opacity-88 bg-[#0A141D]">
                 <div className="flex justify-between items-center gap-[9px] h-[23px]">
                     <div className="flex items-center gap-[7px]">
                         <span className="h-[6px] w-[6px] rounded-full bg-blue" />

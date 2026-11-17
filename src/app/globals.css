@@ -18,6 +18,7 @@
   --color-green: #5DD49C;
   --color-red: #FF6B75;
   --color-grey: #9CB0B3;
+  --color-dark-teal: #245363;
 }
 
 @media (prefers-color-scheme: dark) {

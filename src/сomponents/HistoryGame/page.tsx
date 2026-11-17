@@ -61,7 +61,7 @@ export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games
     ]
 
     return(
-        <div className="bg-[#081018] p-[80px] min-h-[1440px]">
+        <div className="bg-[#0A131C] p-[80px] min-h-[1163px]">
             <div className="flex flex-col gap-[12px]">
                 <span className="font-roboto text-[10px] font-bold leading-none text-blue leading-none uppercase">— ПЕРСОНАЛЬНА АНАiТИКА</span>
                 <span className="font-inter text-[32px] font-normal text-white">Ваші цифри. Без шуму.</span>
@@ -92,7 +92,7 @@ export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games
                     </div>
                 ))}
             </div>
-            <div className="rounded-[18px] border-[1px] border-[#245363] mt-[32px] p-[24px] bg-[#0D1721]">
+            <div className="rounded-[18px] border-[1px] border-dark-teal mt-[32px] p-[24px] bg-[#0D1721]">
                 <div className="flex justify-between">
                     <div>
                         <span className="font-inter font-normal text-[20px] text-white">Історія матчів</span>
@@ -111,13 +111,13 @@ export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games
                                     className={`h-[28px] rounded-[8px] border px-[12px] py-[8px] font-inter text-[10px] font-bold leading-none cursor-pointer transition-colors
                                         ${selectedMode === mode
                                             ? 'border-green bg-[#14312F] text-green'
-                                            : 'border-[#245363] bg-[#0A131C] text-[#9CB0B3] hover:border-green'
+                                            : 'border-dark-teal bg-[#0A131C] text-[#9CB0B3] hover:border-green'
                                         }`}
                                 >
                                     {mode}
                                 </button>
                             ))}
-</div>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-[16px]">

@@ -3,6 +3,7 @@ import Hero from '@/сomponents/Hero/page'
 import HistoryPage from '@/сomponents/HistoryGame/page';
 import getBestPlayerData from './api/getBestPlayerData';
 import { PlayerState } from '@/types';
+import { ActualChempions } from '@/сomponents/ActualMeta/actualChempions/page';
 
 export default async function Home() {
   const data = await getBestPlayerData() as PlayerState
@@ -17,6 +18,7 @@ export default async function Home() {
           csMin={data.csMin} 
           visionMin={1.34} 
           games={data.games}/>
+      <ActualChempions />
     </main>
   );
 }

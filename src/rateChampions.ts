@@ -1,0 +1,91 @@
+export const rank = [
+  {
+    tier: 'S+',
+    color: '#DAB867',
+  },
+  {
+    tier: 'S',
+    color: '#35E0CF',
+  },
+  {
+    tier: 'A',
+    color: '#62A8FF',
+  },
+  {
+    tier: 'A+',
+    color: '#647ea9',
+  },
+  {
+    rank: 'B',
+    color: '#9CB0B3',
+  }
+]
+
+export const rateChampions = [
+  {
+    id: "01",
+    name: "Viego",
+    role: "Jungle",
+    tier: "S+",
+    winRate: "52.8%",
+    pickRate: "15.6%",
+    banRate: "18.3%",
+    matches: "284k",
+    change: "+2",
+  },
+  {
+    id: "02",
+    name: "Ahri",
+    role: "Mid",
+    tier: "S+",
+    winRate: "52.3%",
+    pickRate: "12.9%",
+    banRate: "9.4%",
+    matches: "246k",
+    change: "+1",
+  },
+  {
+    id: "03",
+    name: "Jinx",
+    role: "ADC",
+    tier: "S",
+    winRate: "51.9%",
+    pickRate: "18.1%",
+    banRate: "6.8%",
+    matches: "319k",
+    change: "—",
+  },
+  {
+    id: "04",
+    name: "Thresh",
+    role: "Support",
+    tier: "S",
+    winRate: "51.2%",
+    pickRate: "14.7%",
+    banRate: "11.2%",
+    matches: "257k",
+    change: "+3",
+  },
+  {
+    id: "05",
+    name: "Aatrox",
+    role: "Top",
+    tier: "S",
+    winRate: "50.9%",
+    pickRate: "11.6%",
+    banRate: "14.1%",
+    matches: "204k",
+    change: "-2",
+  },
+  {
+    id: "06",
+    name: "Lee Sin",
+    role: "Jungle",
+    tier: "A+",
+    winRate: "49.8%",
+    pickRate: "20.4%",
+    banRate: "13.7%",
+    matches: "356k",
+    change: "+1",
+  },
+];

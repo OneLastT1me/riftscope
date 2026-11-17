@@ -42,7 +42,7 @@ export default function Navigation() {
                         LIVE DATA
                     </span>
                 </div>
-                <button type="button" className="ml-[6px] h-[35px] w-[69px] rounded-[8px] border border-[#245363] px-[15px] py-[10px] font-sans text-[12px] font-bold leading-none text-[#EDF7F6]">
+                <button type="button" className="ml-[6px] h-[35px] w-[69px] rounded-[8px] border border-dark-teal px-[15px] py-[10px] font-sans text-[12px] font-bold leading-none text-[#EDF7F6]">
                     Увійти
                 </button>
                 </div>

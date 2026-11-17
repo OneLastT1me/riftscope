@@ -19,8 +19,6 @@ export default async function getBestPlayerData () {
                 (games.reduce((sum, games) => sum + games.gameDuration,0) / 60);
         const csMin = Number(countCsMin.toFixed(1))
 
-        console.log(games)
-
         return {
             wins,
             kills,
