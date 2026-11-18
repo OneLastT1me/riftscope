@@ -61,7 +61,7 @@ export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games
     ]
 
     return(
-        <div className="bg-[#0A131C] p-[80px] min-h-[1163px]">
+        <div className="bg-[#081018] p-[80px] min-h-[1163px]">
             <div className="flex flex-col gap-[12px]">
                 <span className="font-roboto text-[10px] font-bold leading-none text-blue leading-none uppercase">— ПЕРСОНАЛЬНА АНАiТИКА</span>
                 <span className="font-inter text-[32px] font-normal text-white">Ваші цифри. Без шуму.</span>

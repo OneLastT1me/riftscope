@@ -1,5 +1,9 @@
-import {rank, rateChampions} from '../../../rateChampions'
+"use client";
+
+import { ChampionStats } from '@/types';
+import {championStats, rank, rateChampions} from '../../../rateChampions'
 import Image from "next/image"
+import { useState } from 'react';
 
 type Metric = {
   label: string;
@@ -16,9 +20,30 @@ const metrics: Metric[] = [
 ];
 
 export function ActualChempions () {
+    const [chempionsList, setChempionsList] = useState<ChampionStats[]>(championStats.sort((a, b) => b.winRate - a.winRate))
+    
+    function FilterbyChempions(typeFilter: string) {
+    let field: keyof ChampionStats | null = null;
 
+    switch (typeFilter) {
+        case 'TIER': field = 'tier'; break;
+        case 'WIN RATE': field = 'winRate'; break;
+        case 'PICK RATE': field = 'pickRate'; break;
+        case 'BAN RATE': field = 'banRate'; break;
+        case 'MATCHES': field = 'matches'; break;
+        case 'CHANGE': field = 'change'; break;
+        case 'ЧЕМПІОН': field = 'championId'; break;
+        default: return setChempionsList(championStats);
+    }
+
+    const tierList = [...championStats].sort(
+        (a, b) => Number(b[field!]) - Number(a[field!])
+    );
+
+    return setChempionsList(tierList);
+}
     return(
-        <div className="bg-[#081018] p-[80px] min-h-[761px]">
+        <div className="bg-[#0A131C] p-[80px] min-h-[761px]">
             <div className="flex flex-col gap-[12px]">
                 <span className="font-roboto text-[10px] font-bold leading-none text-blue leading-none uppercase">— Глобальна статистика</span>
                 <span className="font-inter text-[32px] font-normal text-white">Хто керує метою зараз.</span>
@@ -29,23 +54,25 @@ export function ActualChempions () {
                     <div className="w-full overflow-x-auto">
                         <table className='table-fixed w-full'>
                             <thead>
-                                <tr className='bg-[#111E29] h-[42px]'>
-                                    {['#', 'ЧЕМПІОН', 'TIER', 'WIN RATE', 'PICK RATE', 'BAN RATE', 'MATCHES', 'change'].map((keyName, i) => (
+                                <tr className='bg-[#111E29] h-[42px]' >
+                                    {['#', 'ЧЕМПІОН', 'TIER', 'WIN RATE', 'PICK RATE', 'BAN RATE', 'MATCHES', 'CHANGE'].map((keyName, i) => (
                                         <th key={i} className='w-[90px] px-[8px] font-robot text-[8px] font-normal text-[#64787D] text-right 
                                             [&:nth-child(1)]:w-[28px] [&:nth-child(1)]:text-left [&:nth-child(1)]:pl-[16px]
                                             [&:nth-child(2)]:w-[182px] [&:nth-child(2)]:text-left 
                                             [&:nth-child(3)]:text-left 
-                                            [&:last-child]:text-left [&:last-child]:w-[192px] '>
+                                            [&:last-child]:text-left [&:last-child]:w-[192px] '
+                                            onClick={() => FilterbyChempions(keyName)}
+                                            >
                                             {keyName}
                                         </th>
                                     ))}
                                 </tr>
                             </thead>
                             <tbody>
-                                {rateChampions.map((champion, i) =>(
+                                {chempionsList.slice(0,6).map((champion, i) =>(
                                     <tr key={i} className='h-[72px] items-center border-b-[1px] border-[#1B3440]'> 
                                             <td className='font-robot pl-[16px] text-[12px] font-bold text-[#64787D]'>
-                                                {champion.id}
+                                                {i}
                                             </td>
                                             <td className='px-[8px]'>
                                                 <div className='flex items-center gap-[16px]'>
@@ -57,7 +84,7 @@ export function ActualChempions () {
                                                         style={{ width: "42px", height: "42px" }}
                                                     />
                                                     <div className='flex flex-col'>
-                                                        <span className='font-robot font-normal text-[14px] text-white'>{champion.name}</span>
+                                                        <span className='font-robot font-normal text-[14px] text-white'>{champion.championId}</span>
                                                         <span className='font-inter font-normal text-[10px] text-[#64787D]'>{champion.role}</span>
                                                     </div>
                                                 </div>
@@ -71,19 +98,19 @@ export function ActualChempions () {
                                             </td>
                                             <td className='px-[8px] text-right'>
                                                 <div className='w-[39px] ml-auto flex flex-col'>
-                                                    <span className='font-robot font-normal text-[12px] text-green'>{champion.winRate}</span>
+                                                    <span className='font-robot font-normal text-[12px] text-green'>{champion.winRate} %</span>
                                                     <span className='font-robot font-normal text-[8px] text-[#64787D]'>WIN RATE</span>
                                                 </div>
                                             </td>
                                             <td className='px-[8px] text-right'>
                                                 <div className='w-[39px] ml-auto flex flex-col'>
-                                                    <span className='font-robot font-normal text-[12px] text-blue'>{champion.pickRate}</span>
+                                                    <span className='font-robot font-normal text-[12px] text-blue'>{champion.pickRate} %</span>
                                                     <span className='font-robot font-normal text-[8px] text-[#64787D]'>PICK RATE</span>
                                                 </div>
                                             </td>
                                             <td className='px-[8px] text-right'>
                                                 <div className='w-[39px] ml-auto flex flex-col'>
-                                                    <span className='font-robot font-normal text-[12px] text-red'>{champion.banRate}</span>
+                                                    <span className='font-robot font-normal text-[12px] text-red'>{champion.banRate} %</span>
                                                     <span className='font-robot font-normal text-[8px] text-[#64787D]'>BAN RATE</span>
                                                 </div>
                                             </td>
@@ -95,7 +122,9 @@ export function ActualChempions () {
                                             </td>
                                             <td>
                                                 <div className='flex justify-between items-center pl-[8px] pr-[16px]'>                                         
-                                                    <span className='font-robot font-normal text-[12px] text-green'>{champion.change}</span>
+                                                    <span className='font-robot font-normal text-[12px]' style={{ color: champion.change?.toString().startsWith('-') ? '#FF6B75' : '#35E0CF' }}>
+                                                        {champion.change?.toString().split("")[0] === '-' ? champion.change : '+' + champion.change}
+                                                    </span>
                                                     <Image
                                                         src='./Vector.svg'
                                                         alt='Vector'
@@ -120,29 +149,29 @@ export function ActualChempions () {
                     </div>
                     <div className="space-y-4 mt-[24px]">
                         {metrics.map((metric) => (
-                        <div key={metric.label} className="space-y-2">
-                            <div className="flex items-center justify-between text-xs">
-                            <span className="text-slate-400">
-                                {metric.label}
-                            </span>
+                            <div key={metric.label} className="space-y-2">
+                                <div className="flex items-center justify-between text-xs">
+                                <span className="text-slate-400">
+                                    {metric.label}
+                                </span>
 
-                            <span
-                                className="font-semibold"
-                                style={{ color: metric.color }}
-                            >
-                                {metric.value}
-                            </span>
+                                <span
+                                    className="font-semibold"
+                                    style={{ color: metric.color }}
+                                >
+                                    {metric.value}
+                                </span>
+                                </div>
+                                <div className="h-[6px] w-full overflow-hidden rounded-full bg-[#172630]">
+                                <div
+                                    className="h-full rounded-full transition-all duration-500"
+                                    style={{
+                                    width: `${Math.min(100, Math.max(0, metric.value))}%`,
+                                    backgroundColor: metric.color,
+                                    }}
+                                />
+                                </div>
                             </div>
-                            <div className="h-[6px] w-full overflow-hidden rounded-full bg-[#172630]">
-                            <div
-                                className="h-full rounded-full transition-all duration-500"
-                                style={{
-                                width: `${Math.min(100, Math.max(0, metric.value))}%`,
-                                backgroundColor: metric.color,
-                                }}
-                            />
-                            </div>
-                        </div>
                         ))}
                     </div>
                     <div className='min-w-[200px] p-[16px] rounded-[8px] border-1 border-[#DAB867] bg-[#352D1D] mt-[24px]'>

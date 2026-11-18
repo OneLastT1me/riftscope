@@ -37,3 +37,15 @@ export interface GameState{
     puuid: string
     gameStartTimestamp: string
 }
+
+export interface ChampionStats {
+  championId: string;
+  role: string;
+  tier: string;
+  winRate: number;
+  pickRate: number;
+  banRate: number;
+  matches: number;
+  rankPosition: number;
+  change: number | null;
+}
