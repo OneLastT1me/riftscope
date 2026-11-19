@@ -18,7 +18,7 @@ export default async function getBestPlayerData () {
             sum + games.totalMinionsKilled + games.neutralMinionsKilled,0) /
                 (games.reduce((sum, games) => sum + games.gameDuration,0) / 60);
         const csMin = Number(countCsMin.toFixed(1))
-
+        console.log(challengerPlayers.entries.slice(0,6))
         return {
             wins,
             kills,

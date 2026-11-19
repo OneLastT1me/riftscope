@@ -1,7 +1,7 @@
 "use client";
 
 import { ChampionStats } from '@/types';
-import {championStats, rank, rateChampions} from '../../../rateChampions'
+import {championStats, rank} from '../../../rateChampions'
 import Image from "next/image"
 import { useState } from 'react';
 
@@ -20,7 +20,7 @@ const metrics: Metric[] = [
 ];
 
 export function ActualChempions () {
-    const [chempionsList, setChempionsList] = useState<ChampionStats[]>(championStats.sort((a, b) => b.winRate - a.winRate))
+    const [chempionsList, setChempionsList] = useState<ChampionStats[]>(() => [...championStats].sort((a, b) => b.winRate - a.winRate))
     
     function FilterbyChempions(typeFilter: string) {
     let field: keyof ChampionStats | null = null;
@@ -37,7 +37,14 @@ export function ActualChempions () {
     }
 
     const tierList = [...championStats].sort(
-        (a, b) => Number(b[field!]) - Number(a[field!])
+        (a, b) => {
+            const first = a[field!]
+            const second = b[field!]
+
+            return typeof first === 'string' && typeof second === 'string'
+            ? first.localeCompare(second)
+            : Number(second) - Number(first);
+        }
     );
 
     return setChempionsList(tierList);
@@ -55,12 +62,12 @@ export function ActualChempions () {
                         <table className='table-fixed w-full'>
                             <thead>
                                 <tr className='bg-[#111E29] h-[42px]' >
-                                    {['#', 'ЧЕМПІОН', 'TIER', 'WIN RATE', 'PICK RATE', 'BAN RATE', 'MATCHES', 'CHANGE'].map((keyName, i) => (
-                                        <th key={i} className='w-[90px] px-[8px] font-robot text-[8px] font-normal text-[#64787D] text-right 
+                                    {['#', 'ЧЕМПІОН', 'TIER', 'WIN RATE', 'PICK RATE', 'BAN RATE', 'MATCHES', 'CHANGE'].map((keyName) => (
+                                        <th key={keyName} className='w-[90px] px-[8px] font-robot text-[8px] font-normal text-[#64787D] text-right 
                                             [&:nth-child(1)]:w-[28px] [&:nth-child(1)]:text-left [&:nth-child(1)]:pl-[16px]
                                             [&:nth-child(2)]:w-[182px] [&:nth-child(2)]:text-left 
                                             [&:nth-child(3)]:text-left 
-                                            [&:last-child]:text-left [&:last-child]:w-[192px] '
+                                            [&:last-child]:text-left [&:last-child]:w-[192px]'
                                             onClick={() => FilterbyChempions(keyName)}
                                             >
                                             {keyName}
@@ -77,7 +84,7 @@ export function ActualChempions () {
                                             <td className='px-[8px]'>
                                                 <div className='flex items-center gap-[16px]'>
                                                     <Image
-                                                        src='./Champion-Portrait.svg'
+                                                        src='/Champion-Portrait.svg'
                                                         alt='Champion-Portrait'
                                                         width={42}
                                                         height={42}
@@ -126,7 +133,7 @@ export function ActualChempions () {
                                                         {champion.change?.toString().split("")[0] === '-' ? champion.change : '+' + champion.change}
                                                     </span>
                                                     <Image
-                                                        src='./Vector.svg'
+                                                        src='/Vector.svg'
                                                         alt='Vector'
                                                         width={10}
                                                         height={10}

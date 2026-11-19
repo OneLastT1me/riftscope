@@ -12,6 +12,7 @@ export default function Navigation() {
                             alt="RiftScope"
                             width={21}
                             height={21}
+                            style={{ width: "21px", height: "21px" }}
                         />
                     </div>
                     <div className="flex">

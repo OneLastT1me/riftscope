@@ -159,6 +159,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             width={15}
                             height={15}
                             className="h-auto"
+                            style={{ width: "15px", height: "15px" }}
                         />
                         <p><span className="text-white">Сильна форма.</span> Ваш vision score виріс на 14% за тиждень.</p>
                     </span>
