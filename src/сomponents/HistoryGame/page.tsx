@@ -1,5 +1,6 @@
 "use client";
 
+import { capitalizeFirst } from "@/lib/helper";
 import { GameState } from "@/types"
 import Image from "next/image"
 import { useState } from "react"
@@ -125,14 +126,14 @@ export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games
                         <div key={index} className="flex h-[92px] items-center gap-[16px] rounded-[8px] border-b-[1] border-l-[3] border-[#1B3440] p-[14px_18px] bg-[#0A131C]">
                             <div className="flex flex-col w-[82px] gap-[6px]">
                                 {game.win ? 
-                                    <span className="font-robot text-[9px] font-bold text-green">Перемога</span> : 
-                                    <span className="font-robot text-[9px] font-bold text-red">Поразка</span>
+                                    <span className="font-robot text-[9px] font-bold text-green">ПЕРЕМОГА</span> : 
+                                    <span className="font-robot text-[9px] font-bold text-red">ПОРАЗКА</span>
                                 }
                                 <span className="font-inter text-[10px] text-normal leading-none text-[#64787D]">{game.gameDuration}</span>
                             </div>
                             <div className="w-[54px] h-[54px] shrink-0 border rounded-[12px] border-blue bg-cover bg-center" style={{ backgroundImage: `url(/Champion-Portrait.svg)` }}></div>
                             <div className="flex flex-col w-[112px] gap-[6px]">
-                                <span className="font-inter text-[14px] text-normal leading-none text-white">{game.championName}</span>
+                                <span className="font-inter text-[14px] text-normal leading-none text-white">{capitalizeFirst(game.championName)}</span>
                                 <span className="font-inter text-[10px] text-normal leading-none text-[#64787D]">{game.teamPosition !== 'BOTTOM' ? game.lane : game.role } · Ranked Solo</span>
                             </div>
                             <div className="flex flex-col w-[106px] gap-[6px]">
