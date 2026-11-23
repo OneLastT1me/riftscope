@@ -34,10 +34,6 @@ const build_mock = [
 
 export function Builds () {
     const [selectedMode, setSelectedMode] = useState('Усі ролі');
-
-    function filterRole (champion: ChampionStats, tier: string, mode: string) {
-        return champion.tier === tier && (mode === 'Усі ролі' || champion.role === mode);
-    }
     
     return(
         <div className="bg-[#081018] p-[80px] min-h-[910px]">

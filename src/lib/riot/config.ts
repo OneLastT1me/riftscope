@@ -12,5 +12,11 @@ export const RIOT_REGIONAL_URLS = {
   SEA: "https://sea.api.riotgames.com",
 } as const;
 
+export const RIOT_TYPEGAME = {
+  SOLO_DUO: 'RANKED_SOLO_5x5',
+  FLEX: 'RANKED_FLEX_SR'
+}
+
 export type Platform = keyof typeof RIOT_PLATFORM_URLS;
 export type RegionalRoute = keyof typeof RIOT_REGIONAL_URLS;
+export type TypeGame = keyof typeof RIOT_TYPEGAME

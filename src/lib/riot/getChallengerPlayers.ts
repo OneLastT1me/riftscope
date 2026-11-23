@@ -3,10 +3,13 @@ import "server-only";
 
 import {
   RIOT_PLATFORM_URLS,
+  RIOT_TYPEGAME,
+  TypeGame,
   type Platform,
 } from "./config";
+import { Challenger, ChallengerPlayer } from "@/types";
 
-export async function getChallengerPlayers( platform: Platform = "EUW1") {
+export async function getChallengerPlayers(typeGame: TypeGame = "SOLO_DUO", platform: Platform = "EUW1"): Promise<Challenger> {
   const apiKey = process.env.RIOT_API_KEY;
 
   if (!apiKey) {
@@ -14,7 +17,7 @@ export async function getChallengerPlayers( platform: Platform = "EUW1") {
   }
 
   const response = await fetch(
-    `${RIOT_PLATFORM_URLS[platform]}/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5`,
+    `${RIOT_PLATFORM_URLS[platform]}/lol/league/v4/challengerleagues/by-queue/${RIOT_TYPEGAME[typeGame]}`,
     {
       headers: {
         "X-Riot-Token": apiKey,
@@ -31,5 +34,7 @@ export async function getChallengerPlayers( platform: Platform = "EUW1") {
     );
   }
 
-  return response.json();
+  const data: Challenger = await response.json();
+
+  return data
 }

@@ -28,12 +28,12 @@ export default function FirstSection({player}: Props) {
             <div className="relative z-10">
                 <Navigation />
                 <Content
-                    gameName={player.account.gameName}
+                    gameName={player.account[0].gameName}
                     tier={player.rankPosition.tier}
                     winRate={player.wins} 
                     KDA={Math.round(player.KDA_Avarage)} 
                     csMin={player.csMin}
-                    tagLine={player.account.tagLine}
+                    tagLine={player.account[0].tagLine}
                 />
             </div>
             

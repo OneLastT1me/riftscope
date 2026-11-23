@@ -1,4 +1,20 @@
 
+export interface ChallengerPlayer {
+  summonerId: string;
+  puuid: string;
+  losses: number;
+  wins: number;
+  leaguePoints: number;
+  rank: string;
+}
+export interface Challenger {
+  tier: string;
+  leagueId: string;
+  queue: string;
+  name: string;
+  entries: ChallengerPlayer[];
+}
+
 export interface PlayerState{
     wins: number
     kills: number
@@ -11,10 +27,11 @@ export interface PlayerState{
         gameName: string
         puuid: string
         tagLine: string
-    }
+    }[]
     rankPosition: {
         tier: string
         queue: string
+        leaguePoints: number
     }
     games: GameState[]
 }

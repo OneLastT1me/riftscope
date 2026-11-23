@@ -5,6 +5,7 @@ import getBestPlayerData from './api/getBestPlayerData';
 import { PlayerState } from '@/types';
 import { ActualChempions } from '@/сomponents/ActualMeta/actualChampions/page';
 import { Builds } from '@/сomponents/ActualMeta/builds';
+import { LiveGame } from '@/сomponents/HistoryGame/liveGames';
 
 export default async function Home() {
   const data = await getBestPlayerData() as PlayerState
@@ -21,6 +22,7 @@ export default async function Home() {
           games={data.games}/>
       <ActualChempions />
       <Builds />
+      <LiveGame />      
     </main>
   );
 }
