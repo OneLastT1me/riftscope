@@ -2,10 +2,16 @@ import { getChallengerPlayers } from "@/lib/riot/getChallengerPlayers"
 import getPlayerAccount from "@/lib/riot/getPlayerAccount"
 import Link from "next/link"
 import Image from "next/image"
+import { getActiveGame } from "@/lib/riot/getActiveGame"
 
 export async function LiveGame () {
-    const allTopPLayers = await getChallengerPlayers('SOLO_DUO','EUW1')
-    const challengerPlayers = allTopPLayers.entries.slice(0, 5)
+    const allTopPlayers = await getChallengerPlayers('SOLO_DUO','EUW1')
+    const puuids = allTopPlayers.entries.map((player) => player.puuid).filter((puuid): puuid is string => Boolean(puuid));
+   
+   const data = await getActiveGame('EUW1', puuids.slice(0,20))
+   console.log(data, 'data')
+   
+    const challengerPlayers = allTopPlayers.entries.slice(0, 5)
     const account = await getPlayerAccount("EUROPE" , challengerPlayers.map((player) => player.puuid))
     const playerData = account.map(account => ({
             ...account,

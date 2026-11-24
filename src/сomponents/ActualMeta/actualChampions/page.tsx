@@ -54,7 +54,7 @@ export function ActualChempions () {
             <div className="flex flex-col gap-[12px]">
                 <span className="font-roboto text-[10px] font-bold leading-none text-blue leading-none uppercase">— Глобальна статистика</span>
                 <span className="font-inter text-[32px] font-normal text-white">Хто керує метою зараз.</span>
-                <span className="font-inter text-[14px] font-bold  text-grey">Рейтинг побудований на матчах Emerald+ за останні 7 днів. Дані нормалізовано за роллю та регіоном.</span>
+                <span className="font-inter text-[14px] font-bold  text-grey">Рейтинг побудований на матчах Master+ за останні 7 днів. Дані нормалізовано за роллю та регіоном.</span>
             </div>
             <div className='flex gap-[24px]'>
                 <div className="max-w-[956px] mt-[32px]  rounded-[18px] border-[1px] border-dark-teal overflow-hidden">
