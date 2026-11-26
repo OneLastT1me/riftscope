@@ -54,6 +54,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                         alt="IconSearch"
                         width={19}
                         height={19}
+                        style={{ width: "19px", height: "19px" }}
                     />
                     <div className="flex min-w-0 flex-1 flex-col">
                         <span className="font-roboto text-[8px] uppercase leading-[10px] text-[#687983]">
@@ -79,6 +80,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             alt="ArrowButton"
                             width={15}
                             height={15}
+                            style={{ width: "15px", height: "15px" }}
                         />
                     </button>
                 </form>
@@ -89,6 +91,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             alt="Check-Circle"
                             width={13}
                             height={13}
+                            style={{ width: "13px", height: "13px" }}
                         />
                         42 млн матчів
                     </span>
@@ -98,6 +101,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             alt="Check-Circle"
                             width={13}
                             height={13}
+                            style={{ width: "13px", height: "13px" }}
                         />
                         12 регіонів
                     </span>
@@ -107,6 +111,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             alt="Check-Circle"
                             width={13}
                             height={13}
+                            style={{ width: "13px", height: "13px" }}
                         />
                         Оновлення щогодини
                     </span>

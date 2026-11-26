@@ -11,8 +11,6 @@ export async function getActiveGame(platform: Platform = "EUW1", puuid:  string[
         throw new Error("RIOT_API_KEY is not configured");
     }
 
- 
-
     const responses = await Promise.all(
         ids.map(async (puuid) => {const response = await fetch(`${RIOT_PLATFORM_URLS[platform]}/lol/spectator/v5/active-games/by-summoner/${puuid}`,
             {
@@ -29,14 +27,23 @@ export async function getActiveGame(platform: Platform = "EUW1", puuid:  string[
             return null;
         }
 
+        if (response.status === 429) {
+            const retryAfter = response.headers.get("Retry-After");
+
+            throw new Error(
+                `Riot rate limit exceeded. Retry after ${retryAfter} seconds`
+            );
+            
+        }   
+
         if (!response.ok) {
             throw new Error(
             `Riot API error for ${puuid}: ${response.status}`
             );
         }
 
-      return response.json();
+        return response.json();
     }));
 
-   return responses.filter((game) => game !== null);
+    return responses.filter((game) => game !== null);
 }

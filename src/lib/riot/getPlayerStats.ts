@@ -70,6 +70,7 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
             return response.json();
         })  
     )
+    
    
     const playerState = matches.map((match) => {
         
