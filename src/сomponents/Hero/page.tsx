@@ -4,9 +4,10 @@ import { PlayerState } from "@/types";
 
 type Props = {
     player: PlayerState
+    actualPatch: string
 }
 
-export default function FirstSection({player}: Props) {
+export default function FirstSection({player, actualPatch}: Props) {
 
     return (
         <section className="relative h-[760px] w-full overflow-hidden">
@@ -34,9 +35,9 @@ export default function FirstSection({player}: Props) {
                     KDA={Math.round(player.KDA_Avarage)} 
                     csMin={player.csMin}
                     tagLine={player.account[0].tagLine}
+                    actualPatch={actualPatch}
                 />
             </div>
-            
         </section>
     );
 }

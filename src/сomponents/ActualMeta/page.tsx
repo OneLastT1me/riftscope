@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type Props ={
-    wins: number
+type Props = {
+    actualPatch: string;
 }
 
-export default function ActualMeta () {
+export default function ActualMeta({ actualPatch }: Props) {
     
     const Meta = [{
         character: 'Viego',
@@ -53,7 +53,7 @@ export default function ActualMeta () {
                         </span>
                     </div>
                     <span className="font-roboto text-[36px] font-bold leading-none text-white">
-                        26.18
+                        {actualPatch}
                     </span>
                     <span className="font-inter gap-[7px] text-[12px] flex items-center text-grey !leading-[145%]">
                         Мета стабілізується навколо early-game jungle та utility support.

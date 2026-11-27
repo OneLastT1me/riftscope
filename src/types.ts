@@ -125,3 +125,8 @@ export interface ChampionsResponse {
   version: string;
   data: Record<string, Champion>;
 }
+
+export interface PatchData {
+    actualPatch: string;
+    chimpions: Champion[];
+}

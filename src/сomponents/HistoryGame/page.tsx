@@ -14,11 +14,10 @@ type Props = {
 }
 
 export default function HistoryPage ({wins, KDA_Avarage, csMin, visionMin, games}:Props) {
-    const [selectedMode, setSelectedMode] = useState('All');
+    const [selectedMode, setSelectedMode] = useState('Solo/Duo');
     const [countGames, setCountGames] = useState(5)
     const countWinMatchs = games.slice(0, countGames).filter(match => match.win).length
     const winRate = (( countWinMatchs / countGames ) * 100).toFixed(0)
-
 
     function getTimeAgo(gameStartTimestamp: number, gameDuration: number) {
         const gameEndTimestamp = gameStartTimestamp + gameDuration * 1000;

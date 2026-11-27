@@ -27,6 +27,7 @@ export default async function getPlayerAccount(region: RegionalRoute = "EUROPE",
     })))
     
     const failedResponse = response.find(res => !res.ok)
+    
     if (failedResponse) {
         throw new Error(
             `Riot API error: ${failedResponse.status} ${failedResponse.statusText}`

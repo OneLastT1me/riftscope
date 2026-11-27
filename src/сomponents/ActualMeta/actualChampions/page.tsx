@@ -21,34 +21,37 @@ const metrics: Metric[] = [
 
 export function ActualChempions () {
     const [chempionsList, setChempionsList] = useState<ChampionStats[]>(() => [...championStats].sort((a, b) => b.winRate - a.winRate))
-    
-    function FilterbyChempions(typeFilter: string) {
-    let field: keyof ChampionStats | null = null;
 
-    switch (typeFilter) {
-        case 'TIER': field = 'tier'; break;
-        case 'WIN RATE': field = 'winRate'; break;
-        case 'PICK RATE': field = 'pickRate'; break;
-        case 'BAN RATE': field = 'banRate'; break;
-        case 'MATCHES': field = 'matches'; break;
-        case 'CHANGE': field = 'change'; break;
-        case 'ЧЕМПІОН': field = 'championId'; break;
-        default: return setChempionsList(championStats);
-    }
+    function filterByChampions(typeFilter: string) {
+        const fields: Record<string, keyof ChampionStats> = {
+            'TIER': 'tier',
+            'WIN RATE': 'winRate',
+            'PICK RATE': 'pickRate',
+            'BAN RATE': 'banRate',
+            'MATCHES': 'matches',
+            'CHANGE': 'change',
+            'ЧЕМПІОН': 'championId',
+        };
 
-    const tierList = [...championStats].sort(
-        (a, b) => {
-            const first = a[field!]
-            const second = b[field!]
+        const field = fields[typeFilter];
+
+        if (!field) {
+            setChempionsList(championStats);
+            return;
+        }
+
+        const sortedList = [...championStats].sort((a, b) => {
+            const first = a[field];
+            const second = b[field];
 
             return typeof first === 'string' && typeof second === 'string'
-            ? first.localeCompare(second)
-            : Number(second) - Number(first);
-        }
-    );
+                ? first.localeCompare(second)
+                : Number(second) - Number(first);
+        });
 
-    return setChempionsList(tierList);
-}
+        setChempionsList(sortedList);
+    }
+
     return(
         <div className="bg-[#0A131C] p-[80px] min-h-[761px]">
             <div className="flex flex-col gap-[12px]">
@@ -68,7 +71,7 @@ export function ActualChempions () {
                                             [&:nth-child(2)]:w-[182px] [&:nth-child(2)]:text-left 
                                             [&:nth-child(3)]:text-left 
                                             [&:last-child]:text-left [&:last-child]:w-[192px]'
-                                            onClick={() => FilterbyChempions(keyName)}
+                                            onClick={() => filterByChampions(keyName)}
                                             >
                                             {keyName}
                                         </th>

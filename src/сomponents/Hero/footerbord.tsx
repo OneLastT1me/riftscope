@@ -37,8 +37,6 @@ const footUrl =[
     }
 ]
 
-
-
 export function FooterBord () {
     return(
         <div className="bg-[#081018] px-[80px] pt-[80px]">
@@ -62,7 +60,16 @@ export function FooterBord () {
                     </div>
                 ))}
             </div>
-            <div className="flex flex-col items-center justify-between py-[63px] gap-[24px] rounded-[12px] border-1 border-[#245363]">
+            <div
+                className="flex flex-col items-center justify-between py-[63px] gap-[24px] rounded-[12px] border border-[#245363] w-full h-[360px] bg-cover bg-center"
+                style={{
+                    backgroundImage: `
+                     url('/CTA-overlay.svg'),
+                        url('/bg-footer.svg')
+                       
+                    `,
+                }}
+            >
                 <div className="flex items-center gap-[8px]"> 
                     <span className="inline-block h-[6px] w-[6px] rounded-full bg-blue" />
                     <span className="font-roboto text-[10px] font-bold text-blue">

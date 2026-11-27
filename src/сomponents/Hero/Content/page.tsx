@@ -10,9 +10,10 @@ type Props = {
     KDA: number,
     csMin: number,
     tagLine: string
+    actualPatch: string
 }
 
-export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier, tagLine}:Props) {
+export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier, tagLine, actualPatch}:Props ) {
     const [imgProfile, setImgProfile] = useState("/Champion-Portrait.svg")
     
     const stats = [
@@ -33,14 +34,13 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
   },
 ];
     
-
     return(
         <div className="flex justify-between mx-[clamp(24px,5.56vw,80px)] my-[162px]">
             <div className="w-[clamp(500px,50vw,720px)] h-[368px]">
                 <div className="flex items-center gap-[9px] px-[11px] py-[7px] w-fit border-[1px] border-solid rounded-[999px] border-dark-teal bg-[#0b181e]">
                     <span className="h-[6px] w-[6px] rounded-full bg-yellow" />
                     <span className="font-roboto text-[10px] font-bold leading-none text-yellow">
-                        ДАНІ ОНОВЛЕНО 4 ХВ ТОМУ · PATCH 26.18
+                        ДАНІ ОНОВЛЕНО 4 ХВ ТОМУ · PATCH {actualPatch}
                     </span>
                 </div>
                 <div className="mt-[24px] text-body">
@@ -125,8 +125,8 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                             MATCH INTELLIGENCE
                         </span>
                     </div>
-                    <div className=" w-[84px] h-[23px] px-[6px] py-[5px] text-center rounded-[4px] border-bold border-[1px] border-yellow text-[10px] text-yellow bg-[#352D1D]">
-                        <span className="font-roboto">PATCH 26.18</span>
+                    <div className="flex flex-col  w-[89px] h-[23px] px-[6px] py-[5px] text-center rounded-[4px] border-bold border-[1px] border-yellow text-[10px] text-yellow bg-[#352D1D]">
+                        <span className="font-roboto flex flex-col whitespace-nowrap">PATCH {actualPatch}</span>
                     </div>
                 </div>
                 <div className="flex  mt-[24px] gap-[16px]">
@@ -134,7 +134,7 @@ export default function Content({winRate = 0, KDA = 0, csMin = 0, gameName, tier
                     <div className="flex flex-col gap-[5px]">
                         <span className="font-normal text-[20px] text-white">{gameName} <br /></span>
                         <span className="font-bold text-[12px] text-yellow font-roboto">{tier}<br /></span>
-                        <span className="text-min-body text-[12px] font-roboto">Solo/Duo · останні 20 матчів <br /></span>
+                        <span className="text-min-body text-[12px] font-roboto">Solo/Duo<br /></span>
                     </div>
                 </div>
                 <div className="flex w-full h-[68px] mt-[20px]">

@@ -19,8 +19,7 @@ export async function getActiveGame(platform: Platform = "EUW1", puuid:  string[
             },
             next: {
                 revalidate: 30,
-            },
-            }
+            }}
         );
 
         if (response.status === 404) {
@@ -33,7 +32,6 @@ export async function getActiveGame(platform: Platform = "EUW1", puuid:  string[
             throw new Error(
                 `Riot rate limit exceeded. Retry after ${retryAfter} seconds`
             );
-            
         }   
 
         if (!response.ok) {

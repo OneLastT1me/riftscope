@@ -3,20 +3,16 @@ import getPlayerAccount from "@/lib/riot/getPlayerAccount"
 import Link from "next/link"
 import Image from "next/image"
 import { getActiveGame } from "@/lib/riot/getActiveGame"
-import { getActualpatch } from "@/lib/riot/getActualPatch"
 import { formatGameTime } from "@/lib/helper"
+import { PatchData } from "@/types"
 
-export async function LiveGame () {
+export async function LiveGame ({actualPatch, chimpions}: PatchData) {
     const allTopPlayers = await getChallengerPlayers('SOLO_DUO','EUW1')
     const puuids = allTopPlayers.entries.map((player) => player.puuid).filter((puuid): puuid is string => Boolean(puuid));
    
     const liveGames = await getActiveGame('EUW1', puuids.slice(0,3))
-    const pacth = await getActualpatch();
 
-    const championsMap = new Map(pacth.chimpions.map((champion) => [Number(champion.key),champion,]))
-
-    console.log( liveGames, 'liveGames')
-    console.log(pacth, 'pacth')
+    const championsMap = new Map(chimpions.map((champion) => [Number(champion.key),champion,]))
    
     const challengerPlayers = allTopPlayers.entries.slice(0, 5)
     const account = await getPlayerAccount("EUROPE" , challengerPlayers.map((player) => player.puuid))
@@ -55,7 +51,7 @@ export async function LiveGame () {
                                                             <div key={item.puuid ?? item.riotId}>
                                                             {champion && (
                                                                 <Image
-                                                                src={`https://ddragon.leagueoflegends.com/cdn/${pacth.actualPatch}/img/champion/${champion.image.full}`}
+                                                                src={`https://ddragon.leagueoflegends.com/cdn/${actualPatch}/img/champion/${champion.image.full}`}
                                                                 alt={champion.name}
                                                                 title={champion.name}
                                                                 width={16}
@@ -76,7 +72,7 @@ export async function LiveGame () {
                                                             <div key={item.puuid ?? item.riotId}>
                                                             {champion && (
                                                                 <Image
-                                                                    src={`https://ddragon.leagueoflegends.com/cdn/${pacth.actualPatch}/img/champion/${champion.image.full}`}
+                                                                    src={`https://ddragon.leagueoflegends.com/cdn/${actualPatch}/img/champion/${champion.image.full}`}
                                                                     alt={champion.name}
                                                                     title={champion.name}
                                                                     width={16}
@@ -100,7 +96,7 @@ export async function LiveGame () {
                                                         <div key={i}>
                                                             {champion ? (
                                                                 <Image
-                                                                    src={`https://ddragon.leagueoflegends.com/cdn/${pacth.actualPatch}/img/champion/${champion.image.full}`}
+                                                                    src={`https://ddragon.leagueoflegends.com/cdn/${actualPatch}/img/champion/${champion.image.full}`}
                                                                     alt={champion.name}
                                                                     title={champion.name}
                                                                     width={16}

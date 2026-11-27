@@ -2,7 +2,6 @@
 
 import { capitalizeFirst } from "@/lib/helper";
 import { championStats, rank } from "@/rateChampions";
-import { ChampionStats } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -44,7 +43,10 @@ export function Builds () {
             </div>
             <div className="flex mt-[32px] gap-[16px]">
                 {championStats.sort((a,b) => b.winRate - a.winRate).slice(0,3).map((champion, i) =>(
-                    <div key={i} className="h-[227px] w-[416px] rounded-[12px] border-1 border-[#1B3440] bg-[#0D1721;] p-[20px]">
+                    <div key={i} className={`h-[227px] w-[416px] rounded-[12px] border-1 border-[#1B3440] bg-[#0D1721;] p-[20px] 
+                        ${i === 1 ? "max-lg:!hidden" : ""}
+                        ${i === 2 ? "max-xl:!hidden" : ""}
+                    `}>
                         <div className="flex items-center gap-[12px]">
                             <Image
                                 src='./Champion-Portrait.svg'

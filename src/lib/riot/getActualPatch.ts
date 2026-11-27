@@ -1,6 +1,6 @@
-import { ChampionsResponse } from "@/types";
+import { ChampionsResponse, PatchData } from "@/types";
 
-export async function getActualpatch () {
+export async function getActualpatch ():Promise<PatchData> {
     const patch = await fetch('https://ddragon.leagueoflegends.com/api/versions.json', 
         {
             next: {

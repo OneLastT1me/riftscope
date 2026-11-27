@@ -49,7 +49,6 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
     }
 
     const matchIds: string[] = await matchesResponse.json();
- 
 
     //get state in all matches only player who we have puuid
     const matches: Match[] = await Promise.all(
@@ -70,7 +69,6 @@ export async function getPlayerStats(region: RegionalRoute = "EUROPE", puuid: st
             return response.json();
         })  
     )
-    
    
     const playerState = matches.map((match) => {
         

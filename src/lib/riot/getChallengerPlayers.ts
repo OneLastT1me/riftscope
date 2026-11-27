@@ -7,7 +7,7 @@ import {
   TypeGame,
   type Platform,
 } from "./config";
-import { Challenger, ChallengerPlayer } from "@/types";
+import { Challenger } from "@/types";
 
 export async function getChallengerPlayers(typeGame: TypeGame = "SOLO_DUO", platform: Platform = "EUW1"): Promise<Challenger> {
   const apiKey = process.env.RIOT_API_KEY;
